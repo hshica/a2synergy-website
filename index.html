@@ -1,0 +1,2677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A2 Synergy Data Solutions — Trusted Data Security & Compliance Experts. A Canadian-owned SQL Server consultancy delivering enterprise-grade security, compliance governance, and operational excellence." />
+  <title>A2 Synergy Data Solutions | Trusted Data Security & Compliance Experts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* =========================================
+       CSS RESET & CUSTOM PROPERTIES
+    ========================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #7a00df;
+      --primary-dark: #5c00a8;
+      --primary-light: #9b33e8;
+      --primary-ultra-light: #f3e8ff;
+      --accent: #0693e3;
+      --accent-dark: #0572b4;
+      --dark: #111827;
+      --dark-2: #1f2937;
+      --dark-3: #374151;
+      --gray: #6b7280;
+      --gray-light: #9ca3af;
+      --border: #e5e7eb;
+      --bg-light: #f9fafb;
+      --bg-white: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+      --shadow-xl: 0 20px 60px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.08);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--dark);
+      background: var(--bg-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: var(--font); border: none; background: none; }
+    input, textarea, select { font-family: var(--font); }
+
+    /* =========================================
+       UTILITIES
+    ========================================= */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary-ultra-light);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.625rem);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.0625rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(122, 0, 223, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 6px 20px rgba(122, 0, 223, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.22);
+      border-color: rgba(255,255,255,0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(122, 0, 223, 0.35);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(6, 147, 227, 0.35);
+    }
+
+    .btn-accent:hover {
+      background: var(--accent-dark);
+      box-shadow: 0 6px 20px rgba(6, 147, 227, 0.45);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================
+       NAVBAR
+    ========================================= */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 var(--border), var(--shadow-sm);
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-icon {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .nav-logo-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      transition: color var(--transition);
+    }
+
+    #navbar:not(.scrolled) .nav-logo-name {
+      color: #fff;
+    }
+
+    .nav-logo-tagline {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--gray-light);
+      letter-spacing: 0.03em;
+      transition: color var(--transition);
+    }
+
+    #navbar:not(.scrolled) .nav-logo-tagline {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      color: var(--dark);
+      transition: all var(--transition);
+    }
+
+    #navbar:not(.scrolled) .nav-links a {
+      color: rgba(255,255,255,0.85);
+    }
+
+    .nav-links a:hover,
+    #navbar:not(.scrolled) .nav-links a:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+    }
+
+    #navbar.scrolled .nav-links a:hover {
+      color: var(--primary);
+      background: var(--primary-ultra-light);
+    }
+
+    .nav-cta {
+      background: var(--primary) !important;
+      color: #fff !important;
+      padding: 9px 18px !important;
+      border-radius: var(--radius-md) !important;
+      font-weight: 600 !important;
+      box-shadow: 0 2px 8px rgba(122, 0, 223, 0.3);
+      transition: all var(--transition) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(122, 0, 223, 0.4) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 6px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .hamburger:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    #navbar.scrolled .hamburger:hover {
+      background: var(--primary-ultra-light);
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    #navbar.scrolled .hamburger span {
+      background: var(--dark);
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      padding: 16px 24px 24px;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--dark);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition);
+    }
+
+    .mobile-menu a:hover {
+      color: var(--primary);
+      background: var(--primary-ultra-light);
+    }
+
+    .mobile-menu .mobile-cta {
+      margin-top: 8px;
+      background: var(--primary);
+      color: #fff;
+      text-align: center;
+      border-radius: var(--radius-md);
+      box-shadow: 0 2px 8px rgba(122, 0, 223, 0.3);
+    }
+
+    .mobile-menu .mobile-cta:hover {
+      background: var(--primary-dark);
+      color: #fff;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d0620 0%, #1a0545 30%, #0d1f45 65%, #061230 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+
+    .hero-bg-shapes {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+    }
+
+    .hero-orb-1 {
+      width: 600px;
+      height: 600px;
+      background: var(--primary);
+      top: -200px;
+      right: -100px;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .hero-orb-2 {
+      width: 400px;
+      height: 400px;
+      background: var(--accent);
+      bottom: -100px;
+      left: -50px;
+      animation: float 10s ease-in-out infinite reverse;
+    }
+
+    .hero-orb-3 {
+      width: 300px;
+      height: 300px;
+      background: #9b33e8;
+      top: 50%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      animation: float 12s ease-in-out infinite 2s;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #4ade80;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.4); }
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #c084fc, #818cf8, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.1875rem);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 44px;
+    }
+
+    .hero-stat {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+      transition: all var(--transition);
+    }
+
+    .hero-stat:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
+    }
+
+    .hero-stat-icon {
+      font-size: 1rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      animation: bounce 2.5s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+      border-radius: 2px;
+    }
+
+    /* =========================================
+       TRUST BAR
+    ========================================= */
+    #trust {
+      background: var(--dark-2);
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .trust-item svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--primary-light);
+      flex-shrink: 0;
+    }
+
+    /* =========================================
+       ABOUT
+    ========================================= */
+    #about {
+      padding: 100px 0;
+      background: var(--bg-white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card-main {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: var(--radius-xl);
+      padding: 48px 40px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card-main::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+
+    .about-card-main::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 200px;
+      height: 200px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+
+    .about-card-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(255,255,255,0.15);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .about-card-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: #fff;
+    }
+
+    .about-card-main h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-card-main p {
+      font-size: 0.9375rem;
+      opacity: 0.85;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .about-stat-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      transition: all var(--transition);
+    }
+
+    .about-stat-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .about-stat-number {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .about-stat-label {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .about-text .section-label { margin-bottom: 16px; }
+
+    .about-features {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: all var(--transition);
+    }
+
+    .about-feature:hover {
+      border-color: var(--primary);
+      background: var(--primary-ultra-light);
+      transform: translateX(4px);
+    }
+
+    .about-feature-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .about-feature-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    .about-feature-text h4 {
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+
+    .about-feature-text p {
+      font-size: 0.8375rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* =========================================
+       SERVICES
+    ========================================= */
+    #services {
+      padding: 100px 0;
+      background: var(--bg-light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+
+    .service-card:hover {
+      border-color: rgba(122, 0, 223, 0.2);
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-6px);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    .service-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: #fff;
+    }
+
+    .icon-purple { background: linear-gradient(135deg, #7a00df, #9b33e8); }
+    .icon-blue   { background: linear-gradient(135deg, #0693e3, #0572b4); }
+    .icon-indigo { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+    .icon-teal   { background: linear-gradient(135deg, #0d9488, #0891b2); }
+    .icon-red    { background: linear-gradient(135deg, #dc2626, #e11d48); }
+    .icon-green  { background: linear-gradient(135deg, #16a34a, #059669); }
+
+    .service-card h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .service-tag {
+      font-size: 0.7375rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      background: var(--primary-ultra-light);
+      color: var(--primary);
+      border-radius: 100px;
+    }
+
+    /* =========================================
+       PLANS
+    ========================================= */
+    #plans {
+      padding: 100px 0;
+      background: var(--bg-white);
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .plan-card {
+      background: var(--bg-light);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 40px 36px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .plan-card.featured {
+      background: linear-gradient(160deg, #0d0620 0%, #1a0545 50%, #0d1f45 100%);
+      border-color: var(--primary);
+      color: #fff;
+      transform: scale(1.03);
+      box-shadow: 0 0 0 1px var(--primary), var(--shadow-xl);
+    }
+
+    .plan-card.featured:hover {
+      transform: scale(1.03) translateY(-8px);
+    }
+
+    .plan-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .plan-badge-dot {
+      width: 5px;
+      height: 5px;
+      background: #4ade80;
+      border-radius: 50%;
+    }
+
+    .plan-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .plan-card:not(.featured) .plan-name { color: var(--dark); }
+    .plan-card.featured .plan-name { color: #fff; }
+
+    .plan-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .plan-card:not(.featured) .plan-desc { color: var(--gray); }
+    .plan-card.featured .plan-desc { color: rgba(255,255,255,0.65); }
+
+    .plan-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 28px;
+    }
+
+    .plan-card.featured .plan-divider {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .plan-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .plan-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .plan-card:not(.featured) .plan-feature { color: var(--dark-3); }
+    .plan-card.featured .plan-feature { color: rgba(255,255,255,0.85); }
+
+    .plan-check {
+      width: 18px;
+      height: 18px;
+      background: rgba(122, 0, 223, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .plan-card.featured .plan-check {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .plan-check svg {
+      width: 10px;
+      height: 10px;
+      fill: var(--primary);
+    }
+
+    .plan-card.featured .plan-check svg {
+      fill: #4ade80;
+    }
+
+    .plan-cta {
+      width: 100%;
+      justify-content: center;
+      padding: 15px 28px;
+      font-size: 0.9375rem;
+    }
+
+    /* =========================================
+       TEAM
+    ========================================= */
+    #team {
+      padding: 100px 0;
+      background: var(--bg-light);
+    }
+
+    .team-grid {
+      display: flex;
+      justify-content: center;
+    }
+
+    .team-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 48px 48px 40px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-md);
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(122, 0, 223, 0.2);
+    }
+
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #fff;
+      border: 4px solid var(--bg-white);
+      box-shadow: 0 0 0 3px var(--primary), var(--shadow-md);
+      position: relative;
+    }
+
+    .team-online {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      width: 14px;
+      height: 14px;
+      background: #4ade80;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 6px rgba(74, 222, 128, 0.6);
+    }
+
+    .team-name {
+      font-size: 1.375rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .team-role {
+      font-size: 0.875rem;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .team-bio {
+      font-size: 0.9rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .team-skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .team-skill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      background: var(--primary-ultra-light);
+      color: var(--primary);
+      border-radius: 100px;
+    }
+
+    /* =========================================
+       TESTIMONIALS
+    ========================================= */
+    #testimonials {
+      padding: 100px 0;
+      background: var(--bg-white);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(122, 0, 223, 0.2);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .testimonial-quote {
+      font-size: 3rem;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 16px;
+      opacity: 0.3;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 16px;
+    }
+
+    .star {
+      color: #f59e0b;
+      font-size: 1rem;
+    }
+
+    .testimonial-text {
+      font-size: 0.9375rem;
+      color: var(--dark-3);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .author-info strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .author-info span {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    /* =========================================
+       CONTACT
+    ========================================= */
+    #contact {
+      padding: 100px 0;
+      background: var(--bg-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: all var(--transition);
+    }
+
+    .contact-info-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    .contact-info-text strong {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 3px;
+    }
+
+    .contact-info-text span {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .contact-info-text a {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .contact-info-text a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form-wrap {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 48px 44px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-form-wrap h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-form-wrap p {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dark-3);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 0.9375rem;
+      color: var(--dark);
+      background: var(--bg-white);
+      transition: all var(--transition);
+      outline: none;
+      resize: vertical;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--gray-light);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(122, 0, 223, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 28px;
+      font-size: 1rem;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px;
+      background: #f0fdf4;
+      border: 1px solid #86efac;
+      border-radius: var(--radius-md);
+      color: #166534;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.7);
+      padding: 72px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 16px 0 24px;
+      max-width: 280px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-logo-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    .footer-logo-name {
+      font-size: 0.9375rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .footer-compliance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .compliance-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.03em;
+    }
+
+    .footer-col h4 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--transition);
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--primary-light);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-contact-item svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--primary-light);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-item span {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+
+    .footer-contact-item a {
+      color: rgba(255,255,255,0.55);
+      transition: color var(--transition);
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--primary-light);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.35);
+      transition: color var(--transition);
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--primary-light);
+    }
+
+    /* =========================================
+       BACK TO TOP
+    ========================================= */
+    #back-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(122, 0, 223, 0.4);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all var(--transition);
+      z-index: 900;
+      border: none;
+    }
+
+    #back-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #back-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(122, 0, 223, 0.5);
+    }
+
+    #back-top svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .plans-grid { grid-template-columns: repeat(2, 1fr); }
+      .plans-grid .plan-card:last-child { grid-column: 1 / -1; max-width: 440px; margin: 0 auto; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-title { font-size: 2rem; }
+      .hero-stats { gap: 8px; }
+      .hero-stat { font-size: 0.75rem; padding: 7px 12px; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas .btn { width: 100%; max-width: 300px; justify-content: center; }
+
+      #about .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { order: -1; }
+      .about-stats-row { grid-template-columns: 1fr 1fr; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .plans-grid { grid-template-columns: 1fr; }
+      .plans-grid .plan-card:last-child { grid-column: unset; max-width: none; }
+      .plan-card.featured { transform: none; }
+      .plan-card.featured:hover { transform: translateY(-8px); }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-form-wrap { padding: 32px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .section-title { font-size: 1.625rem; }
+      .plan-card { padding: 32px 24px; }
+      .team-card { padding: 36px 24px 32px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+
+    /* =========================================
+       SCROLL ANIMATIONS
+    ========================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================
+       NAVBAR
+  ========================================= -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo" aria-label="A2 Synergy Data Solutions Home">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+          </div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">A2 Synergy</span>
+            <span class="nav-logo-tagline">Data Solutions</span>
+          </div>
+        </a>
+
+        <div class="nav-links" role="navigation" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#plans">Plans</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="nav-cta">Get Free Assessment</a>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#plans" class="mobile-link">Plans</a>
+        <a href="#team" class="mobile-link">Team</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="#contact" class="mobile-link mobile-cta">Get Free Assessment</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================
+       HERO
+  ========================================= -->
+  <section id="hero" aria-label="Hero section">
+    <div class="hero-bg-shapes" aria-hidden="true">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          Canadian-Owned SQL Server Experts
+        </div>
+
+        <h1 class="hero-title">
+          Trusted Data Security &<br>
+          <span>Compliance Experts</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          A Canadian-owned SQL Server consultancy delivering enterprise-grade security,
+          compliance governance, and operational excellence for businesses that can't afford downtime.
+        </p>
+
+        <div class="hero-stats" role="list" aria-label="Key statistics">
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-icon" aria-hidden="true">⚡</span>
+            10+ Years Experience
+          </div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-icon" aria-hidden="true">📊</span>
+            99.9% Uptime Delivered
+          </div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-icon" aria-hidden="true">🍁</span>
+            Canadian-Owned
+          </div>
+          <div class="hero-stat" role="listitem">
+            <span class="hero-stat-icon" aria-hidden="true">🛡️</span>
+            PIPEDA Compliant
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Get a Free Assessment
+          </a>
+          <a href="#services" class="btn btn-secondary">
+            Our Services
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       TRUST BAR
+  ========================================= -->
+  <div id="trust" aria-label="Trust indicators">
+    <div class="container">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          SQL Server 2012–2022
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+          Azure SQL & Hybrid Cloud
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          PIPEDA / SOC 2 / ISO 27001
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          White-Label MSP Support
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          British Columbia, Canada
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================
+       ABOUT
+  ========================================= -->
+  <section id="about" aria-label="About A2 Synergy Data Solutions">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-card-main">
+            <div class="about-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            </div>
+            <h3>Enterprise-Grade SQL Server Expertise</h3>
+            <p>From SQL Server 2012 through 2022, Azure SQL Managed Instances, and complex hybrid architectures — we've seen it all and secured it all.</p>
+          </div>
+          <div class="about-stats-row">
+            <div class="about-stat-card">
+              <div class="about-stat-number">10+</div>
+              <div class="about-stat-label">Years Experience</div>
+            </div>
+            <div class="about-stat-card">
+              <div class="about-stat-number">99.9%</div>
+              <div class="about-stat-label">Uptime Delivered</div>
+            </div>
+            <div class="about-stat-card">
+              <div class="about-stat-number">🍁</div>
+              <div class="about-stat-label">Canadian-Owned</div>
+            </div>
+            <div class="about-stat-card">
+              <div class="about-stat-number">PIPEDA</div>
+              <div class="about-stat-label">Compliant</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-text reveal reveal-delay-2">
+          <span class="section-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            About Us
+          </span>
+          <h2 class="section-title">A Canadian Company Built on Trust & Technical Excellence</h2>
+          <p class="section-subtitle">
+            A2 Synergy Data Solutions is a proudly Canadian-owned SQL Server consultancy based in British Columbia.
+            We partner with enterprises, SMBs, and managed service providers to deliver security-first database
+            management, regulatory compliance, and operational resilience.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <div class="about-feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div class="about-feature-text">
+                <h4>Deep SQL Server Expertise</h4>
+                <p>Covering versions 2012–2022, Azure SQL, and hybrid architectures with hands-on, battle-tested experience.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+              </div>
+              <div class="about-feature-text">
+                <h4>Compliance-First Philosophy</h4>
+                <p>PIPEDA, SOC 2, and ISO 27001 aligned practices baked into every engagement from day one.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <div class="about-feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              </div>
+              <div class="about-feature-text">
+                <h4>Local Regulatory Knowledge</h4>
+                <p>British Columbia-based, with regional expertise in Canadian data residency requirements and privacy law.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       SERVICES
+  ========================================= -->
+  <section id="services" aria-label="Our Services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+          Six Pillars of Excellence
+        </span>
+        <h2 class="section-title reveal">What We Do Best</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Comprehensive SQL Server services built for Canadian businesses that demand security,
+          compliance, and always-on availability.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon icon-purple" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+          <h3>SQL Server Operational Excellence</h3>
+          <p>Proactive monitoring, intelligent indexing strategies, and deep performance tuning to keep your SQL Server databases running at peak efficiency — day after day.</p>
+          <div class="service-tags">
+            <span class="service-tag">Monitoring</span>
+            <span class="service-tag">Indexing</span>
+            <span class="service-tag">Performance Tuning</span>
+            <span class="service-tag">Query Optimization</span>
+          </div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-icon icon-blue" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          </div>
+          <h3>Security & Compliance Leadership</h3>
+          <p>End-to-end encryption, role-based access control auditing, and full alignment with PIPEDA, SOC 2, and ISO 27001 — protecting your data and your reputation.</p>
+          <div class="service-tags">
+            <span class="service-tag">Encryption</span>
+            <span class="service-tag">RBAC Auditing</span>
+            <span class="service-tag">PIPEDA</span>
+            <span class="service-tag">SOC 2 / ISO 27001</span>
+          </div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-icon icon-indigo" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+          </div>
+          <h3>Cloud & Infrastructure Resilience</h3>
+          <p>Seamless Azure and AWS migrations, hybrid architecture design, and cloud-native SQL deployments that scale with your business and eliminate single points of failure.</p>
+          <div class="service-tags">
+            <span class="service-tag">Azure SQL</span>
+            <span class="service-tag">AWS RDS</span>
+            <span class="service-tag">Hybrid Cloud</span>
+            <span class="service-tag">HA/DR</span>
+          </div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-3">
+          <div class="service-icon icon-teal" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </div>
+          <h3>White-Label & Strategic Partnerships</h3>
+          <p>Confidential, white-label MSSQL support for MSPs and IT partners — extend your service capabilities without expanding headcount, with our team operating as your own.</p>
+          <div class="service-tags">
+            <span class="service-tag">White-Label</span>
+            <span class="service-tag">MSP Support</span>
+            <span class="service-tag">Confidential</span>
+            <span class="service-tag">Partner Program</span>
+          </div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-4">
+          <div class="service-icon icon-red" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>Canadian R&D & Local Insight</h3>
+          <p>Grounded in British Columbia's regulatory environment, we bring locally-relevant compliance expertise, Canadian data residency guidance, and regional privacy law knowledge to every project.</p>
+          <div class="service-tags">
+            <span class="service-tag">PIPEDA</span>
+            <span class="service-tag">BC Privacy Law</span>
+            <span class="service-tag">Data Residency</span>
+            <span class="service-tag">R&D</span>
+          </div>
+        </article>
+
+        <article class="service-card reveal reveal-delay-5">
+          <div class="service-icon icon-green" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <h3>Flexible Retainer Service Model</h3>
+          <p>Predictable, tiered monthly retainer plans designed to fit businesses at every stage — from essential health monitoring to full dedicated DBA coverage with 24/7 response.</p>
+          <div class="service-tags">
+            <span class="service-tag">Monthly Retainer</span>
+            <span class="service-tag">Tiered Plans</span>
+            <span class="service-tag">SLA Backed</span>
+            <span class="service-tag">Scalable</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       PLANS
+  ========================================= -->
+  <section id="plans" aria-label="Retainer Plans and Pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+          Retainer Plans
+        </span>
+        <h2 class="section-title reveal">Flexible Plans for Every Business</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Transparent, tiered retainer models built around your actual needs.
+          No lock-in surprises — just dependable SQL Server expertise on your terms.
+        </p>
+      </div>
+
+      <div class="plans-grid">
+        <!-- Basic -->
+        <div class="plan-card reveal">
+          <div class="plan-name">Basic</div>
+          <div class="plan-desc">Essential SQL Server health and maintenance coverage for growing businesses that need reliable monitoring without the full DBA overhead.</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features" aria-label="Basic plan features">
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Monthly SQL Server health checks
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Backup verification & integrity testing
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Patch advisory & update guidance
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Performance summary reports
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Business-hours email support
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-outline plan-cta">Contact for Pricing</a>
+        </div>
+
+        <!-- Standard (Featured) -->
+        <div class="plan-card featured reveal reveal-delay-2" aria-label="Most popular plan">
+          <div class="plan-badge">
+            <span class="plan-badge-dot" aria-hidden="true"></span>
+            Most Popular
+          </div>
+          <div class="plan-name">Standard</div>
+          <div class="plan-desc">Full-service DBA support with compliance readiness and guaranteed incident response — the smart choice for serious SQL Server environments.</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features" aria-label="Standard plan features">
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Everything in Basic
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Full DBA support (queries, schema, access)
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Compliance preparation & documentation
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              4-hour incident response SLA
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Security audit & access review
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Priority business-hours support
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-primary plan-cta">Contact for Pricing</a>
+        </div>
+
+        <!-- Premium -->
+        <div class="plan-card reveal reveal-delay-4">
+          <div class="plan-name">Premium</div>
+          <div class="plan-desc">Dedicated consultant-level partnership with around-the-clock response, strategic cloud planning, and white-label MSP capabilities.</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features" aria-label="Premium plan features">
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Everything in Standard
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Dedicated SQL Server consultant
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              24/7 incident response coverage
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Cloud migration & planning roadmap
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              White-label MSP support included
+            </li>
+            <li class="plan-feature">
+              <div class="plan-check" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              Quarterly executive reporting
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-outline plan-cta">Contact for Pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       TEAM
+  ========================================= -->
+  <section id="team" aria-label="Our Team">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          Our Team
+        </span>
+        <h2 class="section-title reveal">The Experts Behind Your Data</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Deep SQL Server expertise with a commitment to Canadian business values:
+          transparency, trust, and technical excellence.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar" aria-label="Team member avatar">
+            A2
+            <div class="team-online" aria-label="Available" title="Available"></div>
+          </div>
+          <div class="team-name">A2 Synergy Expert</div>
+          <div class="team-role">Principal SQL Server Consultant &amp; Managing Director</div>
+          <p class="team-bio">
+            A seasoned SQL Server professional with over a decade of hands-on experience across
+            industries ranging from finance to healthcare. Specializing in enterprise security,
+            compliance frameworks, and hybrid cloud migrations — with a deep commitment to Canadian
+            data privacy and regulatory excellence.
+          </p>
+          <div class="team-skills" role="list" aria-label="Skills">
+            <span class="team-skill" role="listitem">SQL Server 2012–2022</span>
+            <span class="team-skill" role="listitem">Azure SQL</span>
+            <span class="team-skill" role="listitem">PIPEDA</span>
+            <span class="team-skill" role="listitem">SOC 2</span>
+            <span class="team-skill" role="listitem">HA/DR</span>
+            <span class="team-skill" role="listitem">Performance Tuning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       TESTIMONIALS
+  ========================================= -->
+  <section id="testimonials" aria-label="Client Testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Client Testimonials
+        </span>
+        <h2 class="section-title reveal">Trusted by Businesses Across BC</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Don't just take our word for it. Here's what our clients have to say about
+          working with A2 Synergy Data Solutions.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card reveal">
+          <div class="testimonial-quote" aria-hidden="true">&ldquo;</div>
+          <div class="testimonial-stars" aria-label="5 stars out of 5">
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="testimonial-text">
+            "A2 Synergy completely transformed how we manage our SQL Server environment.
+            Their PIPEDA compliance work saved us months of internal effort and gave our
+            executive team real confidence heading into our audit. Genuinely impressed with
+            the depth of knowledge and responsiveness."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true">JM</div>
+            <div class="author-info">
+              <strong>J. Morrison</strong>
+              <span>IT Manager, Vancouver</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-quote" aria-hidden="true">&ldquo;</div>
+          <div class="testimonial-stars" aria-label="5 stars out of 5">
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="testimonial-text">
+            "We use A2 Synergy's white-label service to power our managed database offering.
+            Our clients have no idea we have a partner behind the scenes — and that's exactly
+            what we need. Flawless communication, rock-solid SLAs, and they genuinely care
+            about outcomes."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true">SR</div>
+            <div class="author-info">
+              <strong>S. Reyes</strong>
+              <span>Director of Operations, Surrey MSP</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal reveal-delay-4">
+          <div class="testimonial-quote" aria-hidden="true">&ldquo;</div>
+          <div class="testimonial-stars" aria-label="5 stars out of 5">
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="testimonial-text">
+            "When our SQL Server went down on a Friday evening, A2 Synergy had us back
+            online within the SLA window. Their knowledge of Azure hybrid environments
+            is exceptional. We've since migrated entirely to their Standard retainer plan
+            and sleep much better at night."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar" aria-hidden="true">KL</div>
+            <div class="author-info">
+              <strong>K. Lapointe</strong>
+              <span>CTO, Kelowna Tech Firm</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       CONTACT
+  ========================================= -->
+  <section id="contact" aria-label="Contact Us">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Get In Touch
+        </span>
+        <h2 class="section-title reveal">Let's Talk About Your Data</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Ready for a free assessment? Have questions about our services? Our team is here
+          to help — reach out and we'll respond within one business day.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-info-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <strong>Email</strong>
+              <span><a href="mailto:info@a2synergydata.ca">info@a2synergydata.ca</a></span>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <strong>Phone</strong>
+              <span><a href="tel:+17788751325">+1 (778) 875-1325</a></span>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <strong>Location</strong>
+              <span>British Columbia, Canada</span>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <strong>Business Hours</strong>
+              <span>Mon–Fri, 8:00 AM–6:00 PM PT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap reveal reveal-delay-2">
+          <h3>Request a Free Assessment</h3>
+          <p>Tell us about your SQL Server environment and we'll come back to you with a tailored recommendation — no obligation, no sales pressure.</p>
+
+          <form id="contact-form" action="https://formspree.io/f/huishi.ca@gmail.com" method="POST" novalidate>
+            <input type="hidden" name="_cc" value="7788751325@txt.freedommobile.ca" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Full Name <span style="color:var(--primary)">*</span></label>
+                <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email Address <span style="color:var(--primary)">*</span></label>
+                <input type="email" id="contact-email" name="email" placeholder="jane@company.ca" required autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-company">Company Name</label>
+              <input type="text" id="contact-company" name="company" placeholder="Acme Corp" autocomplete="organization" />
+            </div>
+            <div class="form-group">
+              <label for="contact-service">Service of Interest</label>
+              <select id="contact-service" name="service">
+                <option value="">Select a service...</option>
+                <option value="sql-ops">SQL Server Operational Excellence</option>
+                <option value="security">Security &amp; Compliance</option>
+                <option value="cloud">Cloud &amp; Infrastructure</option>
+                <option value="white-label">White-Label Partnership</option>
+                <option value="retainer">Retainer Plan</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message <span style="color:var(--primary)">*</span></label>
+              <textarea id="contact-message" name="message" placeholder="Tell us about your SQL Server environment, current challenges, or questions..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              Send Message
+            </button>
+            <div class="form-success" id="form-success" role="alert" aria-live="polite">
+              Thank you! Your message has been received. We'll be in touch within one business day.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+  <footer aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="footer-logo" aria-label="A2 Synergy Data Solutions">
+            <div class="footer-logo-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <span class="footer-logo-name">A2 Synergy Data Solutions</span>
+          </a>
+          <p>
+            A proudly Canadian-owned SQL Server consultancy delivering enterprise-grade data security,
+            compliance governance, and operational excellence from British Columbia.
+          </p>
+          <div class="footer-compliance" role="list" aria-label="Compliance certifications">
+            <span class="compliance-badge" role="listitem">PIPEDA Compliant</span>
+            <span class="compliance-badge" role="listitem">SOC 2 Aligned</span>
+            <span class="compliance-badge" role="listitem">ISO 27001</span>
+            <span class="compliance-badge" role="listitem">🍁 Canadian-Owned</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#plans">Retainer Plans</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">SQL Server Ops</a></li>
+            <li><a href="#services">Security &amp; Compliance</a></li>
+            <li><a href="#services">Cloud Migration</a></li>
+            <li><a href="#services">White-Label MSP</a></li>
+            <li><a href="#services">Canadian R&amp;D</a></li>
+            <li><a href="#services">Retainer Model</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span><a href="mailto:info@a2synergydata.ca">info@a2synergydata.ca</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span><a href="tel:+17788751325">+1 (778) 875-1325</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>British Columbia, Canada</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            <span>Mon–Fri, 8:00 AM–6:00 PM PT</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 A2 Synergy Data Solutions. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#hero">Privacy Policy</a>
+          <a href="#hero">Terms of Service</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="back-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+  <script>
+    'use strict';
+
+    /* --- Navbar scroll behavior --- */
+    const navbar = document.getElementById('navbar');
+    const backTop = document.getElementById('back-top');
+
+    function onScroll() {
+      const scrolled = window.scrollY > 60;
+      navbar.classList.toggle('scrolled', scrolled);
+      backTop.classList.toggle('visible', window.scrollY > 400);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* --- Mobile hamburger menu --- */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger.addEventListener('click', function () {
+      const isOpen = mobileMenu.classList.contains('open');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        hamburger.classList.add('open');
+        mobileMenu.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    /* Close mobile menu when a link is clicked */
+    document.querySelectorAll('.mobile-link').forEach(function (link) {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    /* Close mobile menu when clicking outside */
+    document.addEventListener('click', function (e) {
+      if (!navbar.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+
+    /* --- Back to top --- */
+    backTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* --- Scroll reveal animations --- */
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealEls.forEach(function (el) {
+      observer.observe(el);
+    });
+
+    /* --- Contact form --- */
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (!name || !email || !message) {
+        const firstEmpty = !name
+          ? document.getElementById('contact-name')
+          : !email
+          ? document.getElementById('contact-email')
+          : document.getElementById('contact-message');
+
+        firstEmpty.focus();
+        firstEmpty.style.borderColor = '#ef4444';
+        firstEmpty.addEventListener('input', function handler() {
+          firstEmpty.style.borderColor = '';
+          firstEmpty.removeEventListener('input', handler);
+        });
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        const emailField = document.getElementById('contact-email');
+        emailField.focus();
+        emailField.style.borderColor = '#ef4444';
+        emailField.addEventListener('input', function handler() {
+          emailField.style.borderColor = '';
+          emailField.removeEventListener('input', handler);
+        });
+        return;
+      }
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Sending...';
+
+      const formData = new FormData(contactForm);
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(response) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Send Message';
+        if (response.ok) {
+          contactForm.reset();
+          formSuccess.style.display = 'block';
+          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          setTimeout(function () {
+            formSuccess.style.display = 'none';
+          }, 6000);
+        } else {
+          alert('Oops! There was a problem sending your message. Please try again or email us directly at info@a2synergydata.ca');
+        }
+      }).catch(function() {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Send Message';
+        alert('Network error. Please try again or email us directly at info@a2synergydata.ca');
+      });
+    });
+
+    /* --- Smooth scroll for all anchor links --- */
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const navHeight = navbar.offsetHeight;
+          const targetTop = target.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+          window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* --- Active nav link highlighting --- */
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + navbar.offsetHeight + 60;
+
+      sections.forEach(function (section) {
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+
+        if (scrollPos >= top && scrollPos < bottom) {
+          navAnchors.forEach(function (a) {
+            a.style.fontWeight = a.getAttribute('href') === '#' + section.id ? '700' : '500';
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+  </script>
+</body>
+</html>
