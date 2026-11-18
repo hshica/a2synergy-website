@@ -5,6 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A2 Synergy Data Solutions — Trusted Data Security & Compliance Experts. A Canadian-owned SQL Server consultancy delivering enterprise-grade security, compliance governance, and operational excellence." />
   <title>A2 Synergy Data Solutions | Trusted Data Security & Compliance Experts — Contemporary — Mobile</title>
+  <script id="view-detect">
+    /* Phones & tablets -> mobile version; computers stay on desktop.
+       A manual choice (floating view switch, or ?view=mobile|desktop) is remembered; ?view=auto clears it. */
+    (function () {
+      var KEY = 'a2-view', HERE = 'mobile', OTHER = '../', want = null;
+      var q = /[?&]view=(mobile|desktop|auto)/.exec(location.search);
+      try {
+        if (q && q[1] === 'auto') localStorage.removeItem(KEY);
+        else if (q) localStorage.setItem(KEY, q[1]);
+        want = localStorage.getItem(KEY);
+      } catch (e) { if (q && q[1] !== 'auto') want = q[1]; }
+      var ua = navigator.userAgent;
+      var isTouchMac = /Macintosh/.test(ua) && navigator.maxTouchPoints > 1;   /* iPadOS reports as Mac */
+      var device = (/Mobi|Android|iPhone|iPad|iPod|Tablet|Silk|Kindle|Opera Mini/i.test(ua) || isTouchMac) ? 'mobile' : 'desktop';
+      var view = want || device;
+      if (view !== HERE) { location.replace(OTHER + location.hash); return; }
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('.view-switch');
+        if (a) { try { localStorage.setItem(KEY, HERE === 'desktop' ? 'mobile' : 'desktop'); } catch (_) {} }
+      });
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="../../assets/logo/logo.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
