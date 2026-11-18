@@ -1690,6 +1690,18 @@
     .plan-card.featured .plan-price-amount { color: #fff; }
     .plan-card.featured .plan-price-from, .plan-card.featured .plan-price-period, .plan-card.featured .plan-scope { color: rgba(255,255,255,0.65); }
     .plans-note { text-align: center; font-size: 0.85rem; color: var(--gray); margin-top: 36px; }
+    /* Hero pricing teaser */
+    .hero-pricing { display: inline-block; margin-top: 22px; font-size: 0.95rem; color: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 2px; }
+    .hero-pricing strong { color: #fff; }
+    .hero-pricing:hover { color: #fff; border-color: #fff; }
+    /* Floating view switch (desktop <-> mobile/tablet) */
+    .view-switch { position: fixed; top: 86px; left: 50%; transform: translateX(-50%); z-index: 999;
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 15px; border-radius: 999px;
+      background: rgba(17,17,17,0.84); color: #fff; font: 600 13px/1 var(--font); white-space: nowrap;
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(0,0,0,0.2); }
+    .view-switch:hover { background: #111; }
+    .view-switch svg { width: 15px; height: 15px; fill: currentColor; }
+    @media (max-width: 768px) { .view-switch { top: 74px; } }
     /* Logo (shared file: assets/logo/logo.svg) */
     .nav-logo-img { width: 38px; height: 38px; flex-shrink: 0; display: block; }
     .footer-logo-img { width: 36px; height: 36px; flex-shrink: 0; display: block; }
@@ -1714,7 +1726,7 @@
         <div class="nav-links" role="navigation" aria-label="Main navigation">
           <a href="#about">About</a>
           <a href="#services">Services</a>
-          <a href="#plans">Plans</a>
+          <a href="#plans">Pricing</a>
           <a href="#team">Team</a>
           <a href="#contact">Contact</a>
           <a href="#contact" class="nav-cta">Get Free Assessment</a>
@@ -1730,7 +1742,7 @@
       <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
         <a href="#about" class="mobile-link">About</a>
         <a href="#services" class="mobile-link">Services</a>
-        <a href="#plans" class="mobile-link">Plans</a>
+        <a href="#plans" class="mobile-link">Pricing</a>
         <a href="#team" class="mobile-link">Team</a>
         <a href="#contact" class="mobile-link">Contact</a>
         <a href="#contact" class="mobile-link mobile-cta">Get Free Assessment</a>
@@ -1795,6 +1807,8 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
           </a>
         </div>
+
+        <a href="#plans" class="hero-pricing">Retainer plans from <strong>CAD $790 / month</strong> <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
 
@@ -2596,5 +2610,8 @@
 
     window.addEventListener('scroll', updateActiveNav, { passive: true });
   </script>
+
+  <!-- Floating link to the mobile / tablet version -->
+  <a class="view-switch" href="mobile/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg>Mobile &amp; tablet version</a>
 </body>
 </html>
