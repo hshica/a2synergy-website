@@ -1678,6 +1678,18 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* Plan pricing */
+    .plan-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin: -12px 0 6px; }
+    .plan-price-from { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .plan-price-amount { font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+    .plan-price-period { font-size: 0.9rem; }
+    .plan-scope { font-size: 0.8rem; line-height: 1.5; margin-bottom: 24px; }
+    .plan-card:not(.featured) .plan-price-amount { color: var(--dark); }
+    .plan-card:not(.featured) .plan-price-from, .plan-card:not(.featured) .plan-price-period, .plan-card:not(.featured) .plan-scope { color: var(--gray); }
+    .plan-card.featured .plan-price-amount { color: #fff; }
+    .plan-card.featured .plan-price-from, .plan-card.featured .plan-price-period, .plan-card.featured .plan-scope { color: rgba(255,255,255,0.65); }
+    .plans-note { text-align: center; font-size: 0.85rem; color: var(--gray); margin-top: 36px; }
     /* Logo (shared file: assets/logo/logo.svg) */
     .nav-logo-img { width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0; display: block; }
     .footer-logo-img { width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0; display: block; }
@@ -1876,6 +1888,12 @@
       .hero-bg-shapes::before { width: 70vw; right: -30vw; top: 8%; opacity: 0.25; }
       .hero-stats { grid-template-columns: 1fr 1fr; row-gap: 14px; }
     }
+
+    /* Pricing */
+    .plan-price-amount { font-family: var(--serif); font-weight: 500; font-size: 1.9rem; }
+    .plan-price { flex-wrap: nowrap; white-space: nowrap; }
+    .plan-card.featured .plan-price-amount { color: #f7f2ea; }
+    .plans-note { text-align: left; font-family: var(--serif); font-style: italic; }
   </style>
 </head>
 <body>
@@ -2223,6 +2241,8 @@
         <div class="plan-card reveal">
           <div class="plan-name">Basic</div>
           <div class="plan-desc">Essential SQL Server health and maintenance coverage for growing businesses that need reliable monitoring without the full DBA overhead.</div>
+          <div class="plan-price"><span class="plan-price-from">From</span><span class="plan-price-amount">CAD $790</span><span class="plan-price-period">/ month</span></div>
+          <div class="plan-scope">Up to 2 SQL Server instances · ~5 consultant hours / month</div>
           <div class="plan-divider"></div>
           <ul class="plan-features" aria-label="Basic plan features">
             <li class="plan-feature">
@@ -2256,7 +2276,7 @@
               Business-hours email support
             </li>
           </ul>
-          <a href="#contact" class="btn btn-outline plan-cta">Contact for Pricing</a>
+          <a href="#contact" class="btn btn-outline plan-cta">Get Started</a>
         </div>
 
         <!-- Standard (Featured) -->
@@ -2267,6 +2287,8 @@
           </div>
           <div class="plan-name">Standard</div>
           <div class="plan-desc">Full-service DBA support with compliance readiness and guaranteed incident response — the smart choice for serious SQL Server environments.</div>
+          <div class="plan-price"><span class="plan-price-from">From</span><span class="plan-price-amount">CAD $2,490</span><span class="plan-price-period">/ month</span></div>
+          <div class="plan-scope">Up to 5 SQL Server instances · ~20 consultant hours / month</div>
           <div class="plan-divider"></div>
           <ul class="plan-features" aria-label="Standard plan features">
             <li class="plan-feature">
@@ -2306,13 +2328,15 @@
               Priority business-hours support
             </li>
           </ul>
-          <a href="#contact" class="btn btn-primary plan-cta">Contact for Pricing</a>
+          <a href="#contact" class="btn btn-primary plan-cta">Get Started</a>
         </div>
 
         <!-- Premium -->
         <div class="plan-card reveal reveal-delay-4">
           <div class="plan-name">Premium</div>
           <div class="plan-desc">Dedicated consultant-level partnership with around-the-clock response, strategic cloud planning, and white-label MSP capabilities.</div>
+          <div class="plan-price"><span class="plan-price-from">From</span><span class="plan-price-amount">CAD $5,990</span><span class="plan-price-period">/ month</span></div>
+          <div class="plan-scope">24/7 coverage · dedicated consultant · larger environments quoted</div>
           <div class="plan-divider"></div>
           <ul class="plan-features" aria-label="Premium plan features">
             <li class="plan-feature">
@@ -2352,9 +2376,10 @@
               Quarterly executive reporting
             </li>
           </ul>
-          <a href="#contact" class="btn btn-outline plan-cta">Contact for Pricing</a>
+          <a href="#contact" class="btn btn-outline plan-cta">Talk to Us</a>
         </div>
       </div>
+      <p class="plans-note reveal">Prices in CAD, excluding GST/PST · Additional hours CAD $165/hr · Save 10% with annual billing · Free initial assessment</p>
     </div>
   </section>
 
