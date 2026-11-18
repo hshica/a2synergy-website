@@ -2770,19 +2770,19 @@
   </script>
 
   <!-- Floating link to the mobile / tablet version -->
-  <a class="view-switch" href="../mobile/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg>Mobile &amp; tablet version</a>
+  <a class="view-switch" href="mobile/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg>Mobile &amp; tablet version</a>
 
-  <!-- Theme comparison switcher (preview only) -->
+  <!-- Design comparison switcher (preview only) -->
   <nav class="theme-switch" aria-label="Compare design versions"><a href="../">Original</a><a href="../modern/" aria-current="page">Modern</a><a href="../concise/">Concise</a><a href="../contemporary/">Contemporary</a></nav>
   <style>
     .theme-switch { position: fixed; left: 16px; bottom: 16px; z-index: 950; display: flex; gap: 2px;
       padding: 4px; border-radius: 999px; background: rgba(17,17,17,0.82); backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px); font: 600 12px/1 -apple-system, BlinkMacSystemFont, sans-serif;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25); max-width: calc(100vw - 88px); overflow-x: auto; }
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25); max-width: calc(100vw - 32px); overflow-x: auto; }
     .theme-switch a { color: rgba(255,255,255,0.7); padding: 8px 12px; border-radius: 999px; white-space: nowrap; }
     .theme-switch a:hover { color: #fff; }
     .theme-switch a[aria-current] { background: #fff; color: #111; }
-    @media (max-width: 480px) { .theme-switch a { padding: 7px 9px; font-size: 11px; } }
+    @media (max-width: 480px) { .theme-switch { left: 10px; } .theme-switch a { padding: 7px 9px; font-size: 11px; } }
   </style>
 </body>
 </html>
