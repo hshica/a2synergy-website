@@ -1712,6 +1712,11 @@
     .plan-card.featured .plan-price-amount { color: #fff; }
     .plan-card.featured .plan-price-from, .plan-card.featured .plan-price-period, .plan-card.featured .plan-scope { color: rgba(255,255,255,0.65); }
     .plans-note { text-align: center; font-size: 0.85rem; color: var(--gray); margin-top: 36px; }
+    /* Click-to-reveal contact details (anti-spam) */
+    .contact-reveal { font: inherit; font-weight: 600; color: var(--primary); background: none; border: 0; padding: 0;
+      cursor: pointer; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+    .contact-reveal:hover { text-decoration-style: solid; }
+    footer .contact-reveal { color: inherit; font-weight: 500; }
     /* Hero pricing teaser */
     .hero-pricing { display: inline-block; margin-top: 22px; font-size: 0.95rem; color: rgba(255,255,255,0.75); border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 2px; }
     .hero-pricing strong { color: #fff; }
@@ -2445,7 +2450,7 @@
             </div>
             <div class="contact-info-text">
               <strong>Email</strong>
-              <span><a href="mailto:info@a2synergydata.ca">info@a2synergydata.ca</a></span>
+              <span><button type="button" class="contact-reveal" data-contact="email">Show email address</button></span>
             </div>
           </div>
 
@@ -2455,7 +2460,7 @@
             </div>
             <div class="contact-info-text">
               <strong>Phone</strong>
-              <span><a href="tel:+17788751325">+1 (778) 875-1325</a></span>
+              <span><button type="button" class="contact-reveal" data-contact="phone">Show phone number</button></span>
             </div>
           </div>
 
@@ -2485,7 +2490,7 @@
           <p>Tell us about your SQL Server environment and we'll come back to you with a tailored recommendation — no obligation, no sales pressure.</p>
 
           <form id="contact-form" action="https://formspree.io/f/xzdkvngw" method="POST" novalidate>
-            <input type="hidden" name="_cc" value="7788751325@txt.freedommobile.ca" />
+            <input type="hidden" name="_cc" value="" />
             <div class="form-row">
               <div class="form-group">
                 <label for="contact-name">Full Name <span style="color:var(--primary)">*</span></label>
@@ -2579,11 +2584,11 @@
           <h4>Contact Info</h4>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span><a href="mailto:info@a2synergydata.ca">info@a2synergydata.ca</a></span>
+            <span><button type="button" class="contact-reveal" data-contact="email">Show email address</button></span>
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            <span><a href="tel:+17788751325">+1 (778) 875-1325</a></span>
+            <span><button type="button" class="contact-reveal" data-contact="phone">Show phone number</button></span>
           </div>
           <div class="footer-contact-item">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
@@ -2747,12 +2752,12 @@
             formSuccess.style.display = 'none';
           }, 6000);
         } else {
-          alert('Oops! There was a problem sending your message. Please try again or email us directly at info@a2synergydata.ca');
+          alert('Oops! There was a problem sending your message. Please try again, or use the email or phone details in the Contact section.');
         }
       }).catch(function() {
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> Send Message';
-        alert('Network error. Please try again or email us directly at info@a2synergydata.ca');
+        alert('Network error. Please try again, or use the email or phone details in the Contact section.');
       });
     });
 
@@ -2793,6 +2798,44 @@
 
   <!-- Floating link to the mobile / tablet version -->
   <a class="view-switch" href="mobile/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg>Mobile &amp; tablet version</a>
+
+  <!-- Click-to-reveal phone & email: not present as text in the page source, to keep spam bots away -->
+  <script id="contact-reveal">
+    (function () {
+      var parts = { e: ['ac', 'atadygrenys2a', 'ofni'], p: ['5231', '578', '877', '1'] };
+      function rev(s) { return s.split('').reverse().join(''); }
+      function get(kind) {
+        if (kind === 'email') {
+          var e = parts.e.map(rev);
+          var addr = e[2] + String.fromCharCode(64) + e[1] + '.' + e[0];
+          return { href: 'mai' + 'lto:' + addr, text: addr };
+        }
+        var d = parts.p.map(rev);
+        return { href: 't' + 'el:+' + d[3] + d[2] + d[1] + d[0], text: '+' + d[3] + ' (' + d[2] + ') ' + d[1] + '-' + d[0] };
+      }
+      /* SMS copy of each enquiry: fill the hidden _cc field only at submit time */
+      document.addEventListener('submit', function (ev) {
+        var cc = ev.target.querySelector && ev.target.querySelector('input[name="_cc"]');
+        if (cc && !cc.value) {
+          var d = parts.p.map(rev);
+          cc.value = d[2] + d[1] + d[0] + String.fromCharCode(64) + 'txt.freedommobile.ca';
+        }
+      }, true);
+      document.addEventListener('click', function (ev) {
+        var el = ev.target.closest && ev.target.closest('[data-contact]');
+        if (!el) return;
+        var c = get(el.getAttribute('data-contact'));
+        if (el.hasAttribute('data-contact-go')) {        /* icon buttons (mobile bar): open dialer / mail app */
+          ev.preventDefault(); window.location.href = c.href; return;
+        }
+        if (el.tagName === 'BUTTON') {                   /* text buttons: swap in the real link */
+          var a = document.createElement('a');
+          a.href = c.href; a.textContent = c.text; a.className = 'contact-revealed';
+          el.replaceWith(a); a.focus();
+        }
+      });
+    })();
+  </script>
 
   <!-- Design comparison switcher (preview only) -->
   <nav class="theme-switch" aria-label="Compare design versions"><a href="../">Original</a><a href="../modern/" aria-current="page">Modern</a><a href="../concise/">Concise</a><a href="../contemporary/">Contemporary</a></nav>
