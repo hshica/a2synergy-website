@@ -27,7 +27,7 @@
       });
     })();
   </script>
-  <link rel="icon" type="image/svg+xml" href="../../assets/logo/logo.svg" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/logo/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -2071,6 +2071,11 @@
     .m-actionbar .m-icon svg { fill: var(--primary); }
     .m-actionbar .m-cta { background: var(--primary); }
   </style>
+  <style>
+    /* Full logo in hero */
+    .hero-logo { display: block; width: 200px; height: auto; margin: 0 0 28px; }
+    @media (max-width: 768px) { .hero-logo { width: 150px; margin-bottom: 20px; } }
+  </style>
 </head>
 <body>
 
@@ -2128,6 +2133,7 @@
 
     <div class="container">
       <div class="hero-content">
+        <img class="hero-logo" src="../../assets/logo/a2-synergy-full-tick-transparent.svg" alt="A2 Synergy Data Solutions logo" width="200" height="200" />
         <div class="hero-badge">
           <span class="hero-badge-dot" aria-hidden="true"></span>
           Canadian-Owned SQL Server Experts
