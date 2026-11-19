@@ -1734,6 +1734,9 @@
     .footer-logo-img { width: 36px; height: 36px; flex-shrink: 0; display: block; }
   </style>
   <style>
+    .nav-logo-img--scrolled { display: none; }
+    #navbar.scrolled .nav-logo-img { display: none; }
+    #navbar.scrolled .nav-logo-img--scrolled { display: block; }
     /* Full logo in hero */
     .hero-logo { display: block; width: 200px; height: auto; margin: 0 auto 28px; }
     @media (max-width: 768px) { .hero-logo { width: 150px; margin-bottom: 20px; } }
@@ -1748,7 +1751,8 @@
     <div class="container">
       <div class="nav-inner">
         <a href="#hero" class="nav-logo" aria-label="A2 Synergy Data Solutions Home">
-          <img class="nav-logo-img" src="assets/logo/logo.svg" alt="" width="38" height="38" />
+          <img class="nav-logo-img" src="assets/logo/logo-on-dark.svg" alt="" width="38" height="38" />
+          <img class="nav-logo-img nav-logo-img--scrolled" src="assets/logo/logo-on-light.svg" alt="" width="38" height="38" />
           <div class="nav-logo-text">
             <span class="nav-logo-name">A2 Synergy</span>
             <span class="nav-logo-tagline">Data Solutions</span>
@@ -2390,7 +2394,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#hero" class="footer-logo" aria-label="A2 Synergy Data Solutions">
-            <img class="footer-logo-img" src="assets/logo/logo.svg" alt="" width="36" height="36" />
+            <img class="footer-logo-img" src="assets/logo/logo-on-dark.svg" alt="" width="36" height="36" />
             <span class="footer-logo-name">A2 Synergy Data Solutions</span>
           </a>
           <p>
